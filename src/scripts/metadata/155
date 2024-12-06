@@ -1,0 +1,15 @@
+{
+  "name": "Herald of Damnation",
+  "description": "ERMERGERD ITS CHRISTMAS!",
+  "image": "ipfs://QmfAA9HM9FrtAYM7AmHNCVneYp7sqoMyWWsryab8hCXCaC/0.png",
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "ID",
+      "value": "15"
+    }
+  ]
+}

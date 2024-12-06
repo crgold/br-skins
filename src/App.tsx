@@ -1,3 +1,4 @@
+import ChainContext from "./context/Chain";
 import {
   ConnectWallet,
   detectContractFeature,
@@ -11,23 +12,28 @@ import {
   useContractMetadata,
   useNFT,
   useUnclaimedNFTSupply,
+  useWallet,
   Web3Button,
 } from "@thirdweb-dev/react";
+import { WalletData } from '@thirdweb-dev/wallets'
 import { BigNumber, utils } from "ethers";
-import { useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { HeadingImage } from "./components/HeadingImage";
 import { PoweredBy } from "./components/PoweredBy";
 import { useToast } from "./components/ui/use-toast";
 import { parseIneligibility } from "./utils/parseIneligibility";
 import {
   clientIdConst,
-  contractConst,
+  arbContract,
+  beamContract,
+  etherlinkContract,
   primaryColorConst,
   themeConst,
 } from "./consts/parameters";
+import { ArbitrumSepolia, BeamTestnet, EtherlinkTestnet } from "@thirdweb-dev/chains";
 
 const urlParams = new URL(window.location.toString()).searchParams;
-const contractAddress = urlParams.get("contract") || contractConst || "";
+//const contractAddress = urlParams.get("contract") || etherlinkContract || "";
 const primaryColor =
   urlParams.get("primaryColor") || primaryColorConst || undefined;
 
@@ -44,6 +50,38 @@ const colors = {
 } as const;
 
 export default function Home() {
+  const { selectedChain, setSelectedChain } = useContext(ChainContext);
+  const wallet = useWallet();
+
+  useEffect(() => {
+    if (!wallet) return;
+
+    const handleChainChange = (data: WalletData) => {
+      setSelectedChain(
+        data.chainId === ArbitrumSepolia.chainId
+          ? ArbitrumSepolia
+          : data.chainId === BeamTestnet.chainId
+          ? BeamTestnet
+          : EtherlinkTestnet
+      );
+    };
+    wallet.on("connect", handleChainChange);
+    wallet.on("change", handleChainChange);
+
+    // Cleanup the listener when the component unmounts or wallet changes
+    return () => {
+      wallet.off("connect", handleChainChange);
+      wallet.off("change", handleChainChange);
+    };
+  }, [wallet, setSelectedChain]);
+
+  const contractAddress =
+  selectedChain.chainId === EtherlinkTestnet.chainId
+    ? etherlinkContract
+    : selectedChain.chainId === ArbitrumSepolia.chainId
+    ? arbContract
+    : beamContract;
+
   const contractQuery = useContract(contractAddress);
   const contractMetadata = useContractMetadata(contractQuery.contract);
   const { toast } = useToast();
