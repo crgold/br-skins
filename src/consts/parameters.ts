@@ -4,7 +4,8 @@
 // For existing collections: import your existing contracts on the dashboard: https://thirdweb.com/dashboard
 export const arbContract = "0xf8C2AD7362d6987A391d6b69Cd8458255A473a3e";
 export const beamContract = "0x13C4Adcda22C7761E1999C8afD356B191E6168B2";
-export const etherlinkContract = "0xd690a2eE4aA4b308634BA9eEee2cAbB2574E8c1A";
+//export const etherlinkContract = "0xd690a2eE4aA4b308634BA9eEee2cAbB2574E8c1A";
+export const etherlinkContract = "0xBDa4aDBdEfeEf769B086db680465839F79045A88";
 
 // The name of the chain your contract is deployed to.
 // Refer to README.md on how to specify the chain name.
