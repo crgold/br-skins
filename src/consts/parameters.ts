@@ -2,7 +2,7 @@
 
 // Your smart contract address (available on the thirdweb dashboard)
 // For existing collections: import your existing contracts on the dashboard: https://thirdweb.com/dashboard
-export const arbContract = "0xf8C2AD7362d6987A391d6b69Cd8458255A473a3e";
+export const arbContract = "0x8119F2b8787D09A67F98b995A7a47F98f768b1cc";
 export const beamContract = "0x13C4Adcda22C7761E1999C8afD356B191E6168B2";
 export const etherlinkContract = "0x8545372ADC78511137c959C5B8775A6Fe965496C";
 
