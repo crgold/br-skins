@@ -96,7 +96,7 @@ const shuffleArray = (array) => {
 };
 
 
-const outputDir = "src/scripts/metadataBeam";
+const outputDir = "src/scripts/metadataEther";
 
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
