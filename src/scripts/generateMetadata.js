@@ -1,38 +1,38 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 const metadataTemplate = [
-  { name: "The Blades of Shadow", rarity: "Common", id: "0" },
-  { name: "The Uruk Disciple", rarity: "Common", id: "1" },
-  { name: "Void Incarnate", rarity: "Common", id: "2" },
-  { name: "Commander of Knights", rarity: "Common", id: "3" },
-  { name: "Herald of the Curse", rarity: "Common", id: "4" },
-  { name: "Ubferbak Hound", rarity: "Common", id: "5" },
-  { name: "Burned Mage", rarity: "Common", id: "6" },
-  { name: "Undead Berserker", rarity: "Common", id: "7" },
-  { name: "Green with Anger", rarity: "Common", id: "8" },
-  { name: "Uruk's Priest", rarity: "Rare", id: "9" },
-  { name: "The Animal Within", rarity: "Rare", id: "10" },
-  { name: "Kabuto", rarity: "Rare", id: "11" },
-  { name: "Undead General", rarity: "Rare", id: "12" },
-  { name: "Golden Golem", rarity: "Rare", id: "13" },
-  { name: "The Hollow Warrior", rarity: "Rare", id: "14" },
-  { name: "Herald of Damnation", rarity: "Rare", id: "15" },
-  { name: "Dragonborn", rarity: "Rare", id: "16" },
-  { name: "Lava Golem", rarity: "Rare", id: "17" },
-  { name: "Golden Maiden", rarity: "Epic", id: "18" },
-  { name: "Cherub", rarity: "Epic", id: "19" },
-  { name: "Ascendent Succubus", rarity: "Epic", id: "20" },
-  { name: "The Dark Knight", rarity: "Epic", id: "21" },
-  { name: "Devoured by Chaos", rarity: "Epic", id: "22" },
-  { name: "Crystal Protector", rarity: "Epic", id: "23" },
-  { name: "Marked by Uruk", rarity: "Epic", id: "24" },
-  { name: "The Scarlet Hunter", rarity: "Legendary", id: "25" },
-  { name: "Winter Defender", rarity: "Legendary", id: "26" },
-  { name: "Krampus", rarity: "Legendary", id: "27" },
-  { name: "Scarlet Zephyr", rarity: "Legendary", id: "28" },
-  { name: "The Lord of Sin", rarity: "Legendary", id: "29" },
-  { name: "Swamp Monster", rarity: "Legendary", id: "30" }
+  { name: "The Blades of Shadow", rarity: "Common", id: "354" },
+  { name: "The Uruk Disciple", rarity: "Common", id: "355" },
+  { name: "Void Incarnate", rarity: "Common", id: "356" },
+  { name: "Commander of Knights", rarity: "Common", id: "357" },
+  { name: "Herald of the Curse", rarity: "Common", id: "358" },
+  { name: "Ubferbak Hound", rarity: "Common", id: "359" },
+  { name: "Burned Mage", rarity: "Common", id: "360" },
+  { name: "Undead Berserker", rarity: "Common", id: "361" },
+  { name: "Green with Anger", rarity: "Common", id: "362" },
+  { name: "Uruk's Priest", rarity: "Rare", id: "363" },
+  { name: "The Animal Within", rarity: "Rare", id: "364" },
+  { name: "Kabuto", rarity: "Rare", id: "365" },
+  { name: "Undead General", rarity: "Rare", id: "366" },
+  { name: "Golden Golem", rarity: "Rare", id: "367" },
+  { name: "The Hollow Warrior", rarity: "Rare", id: "368" },
+  { name: "Herald of Damnation", rarity: "Rare", id: "369" },
+  { name: "Dragonborn", rarity: "Rare", id: "370" },
+  { name: "Lava Golem", rarity: "Rare", id: "371" },
+  { name: "Golden Maiden", rarity: "Epic", id: "372" },
+  { name: "Cherub", rarity: "Epic", id: "373" },
+  { name: "Ascendent Succubus", rarity: "Epic", id: "374" },
+  { name: "The Dark Knight", rarity: "Epic", id: "375" },
+  { name: "Devoured by Chaos", rarity: "Epic", id: "376" },
+  { name: "Crystal Protector", rarity: "Epic", id: "377" },
+  { name: "Marked by Uruk", rarity: "Epic", id: "378" },
+  { name: "The Scarlet Hunter", rarity: "Legendary", id: "379" },
+  { name: "Winter Defender", rarity: "Legendary", id: "380" },
+  { name: "Krampus", rarity: "Legendary", id: "381" },
+  { name: "Scarlet Zephyr", rarity: "Legendary", id: "382" },
+  { name: "The Lord of Sin", rarity: "Legendary", id: "383" },
+  { name: "Swamp Monster", rarity: "Legendary", id: "384" }
 ];
 
 const rarityCounts = {
@@ -96,7 +96,7 @@ const shuffleArray = (array) => {
 };
 
 
-const outputDir = "src/scripts/metadata";
+const outputDir = "src/scripts/metadataBeam";
 
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
@@ -126,7 +126,7 @@ collectionMetadata = shuffleArray(collectionMetadata);
 createMetadataFiles(collectionMetadata);
 
 // Write to a JSON file
-const filePath = 'src/scripts/metadata.json';
+/*const filePath = 'src/scripts/metadata.json';
 
 fs.writeFile(filePath, JSON.stringify(collectionMetadata, null, 2), (err) => {
   if (err) {
@@ -134,4 +134,4 @@ fs.writeFile(filePath, JSON.stringify(collectionMetadata, null, 2), (err) => {
   } else {
     console.log(`Metadata successfully written to ${filePath}`);
   }
-});
+});*/
